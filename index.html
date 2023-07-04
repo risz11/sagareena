@@ -7,13 +7,51 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.4.2/aframe.min.js"></script>
 </head>
 <body>
-    <a-scene>
-        <img id="panorama" src="sagareena.jpeg"/>
-        <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
-    </a-scene>
-     <audio controls autoplay loop preload="auto">
-  <source src="sagareena.mpeg" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+    <style>
+        #panorama-container {
+          position: relative;
+          display: inline-block;
+        }
+      
+        #play-button {
+          position: absolute;
+          top: 10%;
+          margin-left: 90%;
+          transform: translate(-10%, -10%);
+          padding: 10px 20px;
+          background-color: #000;
+          color: #fff;
+          font-size: 16px;
+          cursor: pointer;
+          opacity: 30%;
+          border-radius: 50px;
+        }
+
+        #myAudio{
+            width: 300px;
+            margin-left: 10px;
+            margin-top: 22rem;
+            opacity: 20%;
+        }
+    </style>
+    <div id="panorama-container">
+        <a-scene>
+            <img id="panorama" src="sagareena.jpeg"/>
+            <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
+        </a-scene>
+        <div id="play-button" onclick="playAudio()">Play Your Song</div>
+    </div>
+
+    <audio id="myAudio" controls autoplay loop>
+        <source src="sagareena.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function playAudio() {
+            var audio = document.getElementById('myAudio');
+            audio.play();
+        }
+    </script>
 </body>
 </html>
